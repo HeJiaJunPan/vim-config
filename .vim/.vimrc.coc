@@ -169,3 +169,9 @@ noremap <C-F> :Prettier<CR>
 noremap <space>e :CocCommand explorer<CR>
 " Close Coc-explorer if it is the only window
 autocmd BufEnter * if (&ft == 'coc-explorer' && winnr("$") == 1) | q | endif
+
+"coc-list快捷键
+nnoremap <c-p> :CocConfig<CR>
+nnoremap <silent><nowait> <space>f  :<C-u>CocList files<CR>
+nnoremap <silent><nowait> <space>r  :<C-u>CocList mru<CR>
+nnoremap <silent><nowait> <space>l  :<C-u>CocList lines<CR>

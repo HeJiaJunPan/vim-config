@@ -158,3 +158,14 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+"---------------------------------------------私人配置---------------------------------------------
+" Use <Ctrl-F> to format documents with prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+noremap <C-F> :Prettier<CR>
+
+" Use <Space-E> to open explorer
+" Using Coc-explorer
+noremap <space>e :CocCommand explorer<CR>
+" Close Coc-explorer if it is the only window
+autocmd BufEnter * if (&ft == 'coc-explorer' && winnr("$") == 1) | q | endif

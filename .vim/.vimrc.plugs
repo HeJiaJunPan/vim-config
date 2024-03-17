@@ -1,0 +1,16 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/vim-plug'
+Plug 'scrooloose/nerdcommenter' "多行注释，leader键+cc生成, leader+cu删除注释
+"Plug 'aperezdc/vim-template'
+Plug 'liuchengxu/space-vim-dark'
+"Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()

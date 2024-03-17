@@ -1,0 +1,74 @@
+"-------------------------------------vim-template-------------------------------------------
+if isdirectory(expand("~/.vim/plugged/vim-template"))
+    let g:templates_directory = ['/home/pylego/.vim/templates',]
+    let g:templates_user_variables = [['EMAIL', 'GetMail'], ['FULLPATH', 'GetFullPath']]
+endif
+
+function GetMail()
+    return 'zhiyeyou@gmail.com'
+endfunction
+
+function GetFullPath()
+    return expand('%:p')
+endfunction
+
+"-------------------------------------asyncrun.vim-------------------------------------------
+if isdirectory(expand("~/.vim/plugged/asyncrun.vim"))
+    nmap <Leader>tr :AsyncRun
+    function! RUNIT()
+        exec "w"
+        cclose
+        call asyncrun#quickfix_toggle(8)
+        " ; 链接多条命令（linux）或者 & 链接多条命令（windows）
+        if &filetype == 'c'
+            if !g:platform['windows']
+                exec ":AsyncRun gcc -std=c99 % -o %<;./%<"
+            else
+                exec ":AsyncRun gcc -std=c99 % -o %<&%<"
+            endif
+        elseif &filetype == 'cpp'
+            if !g:platform['windows']
+                exec ":AsyncRun g++ % -o %<;./%<"
+            else
+                exec ":AsyncRun g++ % -o %<&%<"
+            endif
+        elseif &filetype == 'java'
+            if !g:platform['windows']
+                exec ":AsyncRun javac -encoding UTF-8 %;java %<"
+            else
+                exec ":AsyncRun javac -encoding UTF-8 %&java %<"
+            endif
+        elseif &filetype == 'sh'
+            exec ":AsyncRun bash %"
+        elseif &filetype == 'python'
+            if !g:platform['windows']
+                exec ":AsyncRun python3 %"
+            else
+                exec ":AsyncRun python %"
+            endif
+        elseif &filetype == 'perl'
+            exec ":AsyncRun perl %"
+        elseif &filetype == 'go'
+            exec ":AsyncRun go run %"
+        endif
+    endfunction
+    nmap <F5> :call RUNIT()<CR>
+    nmap <leader><F5> :call asyncrun#quickfix_toggle(8)<CR>
+endif
+
+"-------------------------------------asyncrun.vim-------------------------------------------
+if isdirectory(expand("~/.vim/plugged/fzf.vim"))
+    "为了搜索隐藏文件，安装fd命令:apt install fdfind
+    ".bashrc文件添加：export FZF_DEFAULT_COMMAND='fd --type=file --hidden --exclude .git'
+    "预览窗口高亮：apt install bat
+    "<Leader>f在当前目录搜索文件
+    nnoremap <silent> <Leader>f :Files<CR>
+    "<Leader>b切换Buffer中的文件
+    nnoremap <silent> <Leader>b :Buffers<CR>
+    "<Leader>p在当前所有加载的Buffer中搜索包含目标词的所有行，:BLines只在当前Buffer中搜索
+    nnoremap <silent> <Leader>p :Lines<CR>
+    "<Leader>h在Vim打开的历史文件中搜索，相当于是在MRU中搜索，:History：命令历史查找
+    nnoremap <silent> <Leader>h :History<CR>
+endif
+
+"-------------------------------------other-------------------------------------------

@@ -1,6 +1,7 @@
 vim9script
 
 set nocompatible
+g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-sh', 'coc-lists', 'coc-pairs', 'coc-marketplace', 'coc-prettier', 'coc-explorer']
 
 source ~/.vim/config/basic.vim
 source ~/.vim/config/plugins.vim

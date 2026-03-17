@@ -14,6 +14,7 @@ Plug 'liuchengxu/space-vim-dark'
 
 Plug 'tpope/vim-surround'
 
-Plug 'monkoose/vim9-stargate'
+Plug 'easymotion/vim-easymotion'
+#Plug 'monkoose/vim9-stargate'
 
 plug#end()

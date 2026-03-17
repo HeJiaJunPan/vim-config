@@ -2,11 +2,7 @@
 ```bash
 git clone https://github.com/HeJiaJunPan/vim-config.git ~
 ```
-移动文件：
-```bash
-mv ~/vim-config/.vimrc ~/vim-config/.vim ~
-rm -rf ~/vim-config
-```
+
 包管理器下载：
 ```bash
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \

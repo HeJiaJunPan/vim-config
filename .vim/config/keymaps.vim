@@ -41,24 +41,3 @@ nnoremap <F2> :g/^\s*$/d<CR>
 
 # 删除空格
 map <F3> :%s/\s\+$//<CR>
-
-# 文件树
-nnoremap <leader>e :NERDTreeToggle<CR>
-
-# 模糊搜索
-nnoremap <leader>f :Files<CR>
-
-# 项目搜索
-nnoremap <leader>g :Rg<CR>
-
-# buffer
-nnoremap <leader>b :Buffers<CR>
-
-# 保存
-nnoremap <leader>w :w<CR>
-
-# 自动格式化
-nnoremap <leader>F :Autoformat<CR>
-
-# diagnostics
-nnoremap <leader>d :LspDiag show<CR>

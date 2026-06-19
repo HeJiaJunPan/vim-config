@@ -3,8 +3,12 @@ vim9script
 set nocompatible
 g:coc_global_extensions = ['coc-docker', 'coc-json', 'coc-pyright', 'coc-sh', 'coc-lists', 'coc-pairs', 'coc-marketplace', 'coc-prettier', 'coc-explorer']
 
-source ~/.vim/config/basic.vim
-source ~/.vim/config/plugins.vim
-source ~/.vim/config/keymaps.vim
-source ~/.vim/config/ui.vim
-source ~/.vim/config/coc.vim
+# 动态加载config目录下的配置文件
+# source无法使用动态变量，通过execute命令执行sorce拼接字符串
+# glob获取文件列表，第三个参数为true返回list而不是字符串
+const configDir = expand('~/.vim/config')
+const configFiles = glob(configDir .. '/*.vim', false, true)
+
+for file in configFiles
+    execute 'source ' .. file
+endfor

@@ -6,10 +6,10 @@ nnoremap \ ,
 nnoremap J j
 nnoremap K k
 inoremap jk <ESC>
-nnoremap <Up> <Nop>
-nnoremap <Down> <Nop>
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
+#nnoremap <Up> <Nop>
+#nnoremap <Down> <Nop>
+#nnoremap <Left> <Nop>
+#nnoremap <Right> <Nop>
 nnoremap <leader>/ :nohlsearch<CR>
 
 nnoremap <leader>tn :tabnew<cr>

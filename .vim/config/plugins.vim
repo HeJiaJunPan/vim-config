@@ -74,6 +74,6 @@ inoremap <buffer><expr> <tab>   g:VimCompleteTab() ?? "{rhs}"
 inoremap <buffer><expr> <s-tab> g:VimCompleteSTab() ?? "{rhs}"
 
 ## Tree
-nnoremap <leader>e :Fern . -drawer -toggle<CR>
+nnoremap <silent> <leader>e :Fern . -drawer -toggle<CR>
 
 ## Search

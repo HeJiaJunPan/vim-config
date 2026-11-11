@@ -1,7 +1,6 @@
 vim9script
 
 set nocompatible
-g:coc_global_extensions = ['coc-docker', 'coc-json', 'coc-pyright', 'coc-sh', 'coc-lists', 'coc-pairs', 'coc-marketplace', 'coc-prettier', 'coc-explorer']
 
 # 动态加载config目录下的配置文件
 # source无法使用动态变量，通过execute命令执行sorce拼接字符串

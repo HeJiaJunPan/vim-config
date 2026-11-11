@@ -3,7 +3,12 @@ vim9script
 plug#begin('~/.vim/plugged')
 
 # LSP
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'girishji/vimcomplete'
+
+# Search and Tree
+Plug 'lambdalisue/fern.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 # Markdown
 Plug 'plasticboy/vim-markdown'
@@ -15,7 +20,6 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'tpope/vim-surround'
 
 Plug 'easymotion/vim-easymotion'
-#Plug 'monkoose/vim9-stargate'
 
 # osc52支持，仅SSH环境生效
 if !empty($SSH_TTY)
@@ -53,3 +57,27 @@ if !empty($SSH_TTY) && isdirectory(expand("~/.vim/plugged/vim-oscyank"))
     augroup END
 
 endif
+
+## complete
+var options = {
+    completor: { shuffleEqualPriority: true, postfixHighlight: true, noNewlineInCompletionEver: true },
+    buffer: { enable: true, priority: 10, urlComplete: true, envComplete: true },
+    abbrev: { enable: true, priority: 10 },
+    lsp: { enable: true, priority: 10, maxCount: 5 },
+    omnifunc: { enable: false, priority: 8, filetypes: ['python', 'javascript'] },
+    vsnip: { enable: true, priority: 11 },
+    vimscript: { enable: true, priority: 11 }
+}
+autocmd VimEnter * g:VimCompleteOptionsSet(options)
+
+g:vimcomplete_tab_enable = 1
+inoremap <buffer><expr> <tab>   g:VimCompleteTab() ?? "{rhs}"
+inoremap <buffer><expr> <s-tab> g:VimCompleteSTab() ?? "{rhs}"
+
+## Tree
+nnoremap <leader>e :Fern . -drawer -toggle<CR>
+
+## Search
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>g :Rg<CR>
+nnoremap <leader>l :BLines<CR>

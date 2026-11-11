@@ -7,8 +7,7 @@ Plug 'girishji/vimcomplete'
 
 # Search and Tree
 Plug 'lambdalisue/fern.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'vim-fuzzbox/fuzzbox.vim'
 
 # Markdown
 Plug 'plasticboy/vim-markdown'
@@ -78,6 +77,3 @@ inoremap <buffer><expr> <s-tab> g:VimCompleteSTab() ?? "{rhs}"
 nnoremap <leader>e :Fern . -drawer -toggle<CR>
 
 ## Search
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>g :Rg<CR>
-nnoremap <leader>l :BLines<CR>

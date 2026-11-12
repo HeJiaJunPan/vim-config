@@ -20,6 +20,8 @@ Plug 'tpope/vim-surround'
 
 Plug 'easymotion/vim-easymotion'
 
+Plug 'chrispane11/miniterm.vim'
+
 # osc52支持，仅SSH环境生效
 if !empty($SSH_TTY)
     Plug 'ojroques/vim-oscyank', {'branch': 'main'}
@@ -75,5 +77,3 @@ inoremap <buffer><expr> <s-tab> g:VimCompleteSTab() ?? "{rhs}"
 
 ## Tree
 nnoremap <silent> <leader>e :Fern . -drawer -toggle<CR>
-
-## Search
